@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "age-gender-detection"
+version = "1.0.0"
+description = "AI-powered face analysis system for age, gender, and emotion detection"
+requires-python = ">=3.10"
+dependencies = [
+    "streamlit==1.28.0",
+    "opencv-python-headless==4.8.1.78",
+    "insightface==0.7.3",
+    "deepface==0.0.79",
+    "Pillow==10.0.1",
+    "numpy==1.24.3",
+    "tensorflow==2.15.0",
+    "tf-keras==2.15.0",
+    "onnxruntime>=1.15.0",
+    "scikit-learn>=1.0.0",
+    "protobuf==3.20.3",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7",
+    "ruff>=0.1",
+    "mypy>=1.5",
+]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 140
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+
+[tool.mypy]
+python_version = "3.10"
+strict = false
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
